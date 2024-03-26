@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1eff2114-1f42-4311-b296-28e1c3560fc8",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "email.email.com",
+    "notes": "This is a test",
+    "created": "2024-02-18T05:56:13.736Z",
+    "lastEdited": "2024-02-18T05:56:13.736Z"
+  },
+  {
+    "id": "a274035b-585e-4659-a76d-d92f620bb59a",
+    "firstName": "Karla",
+    "lastName": "Meza",
+    "email": "meza@email.edu",
+    "notes": "Test 3",
+    "created": "2024-02-18T07:13:57.824Z",
+    "lastEdited": "2024-02-18T07:35:50.808Z"
+  },
+  {
+    "id": "e52082f7-5c38-4e89-ae2b-e225dce43ae5",
+    "firstName": "Juan",
+    "lastName": "Sanchez",
+    "email": "sanchez123@email.org",
+    "notes": "Fixed last name",
+    "created": "2024-02-19T00:01:22.056Z",
+    "lastEdited": "2024-02-19T00:02:35.943Z"
+  }
+]

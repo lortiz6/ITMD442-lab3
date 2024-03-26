@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/css/style.css')
+  .container
+    h1#main-heading.text-center= contact.firstName + ' ' + contact.lastName
+    table#contact-details-table
+      tr
+        th Email:
+        td= contact.email
+      tr
+        th Notes:
+        td= contact.notes ? contact.notes : 'No notes available'
+      tr
+        th Created:
+        td= contact.createdFormatted
+      tr
+        th Last Edited:
+        td= contact.lastEditedFormatted
+    .contact-actions
+      a.btn(href=`/contacts/${contact.id}/edit`) Edit
+      br
+      form.delete-form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`)
+        button.delete-btn(type='submit') Delete

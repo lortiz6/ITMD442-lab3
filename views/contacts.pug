@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/css/style.css')
+  div#contacts-container
+    h1 Contacts
+    table#contacts-table
+      thead
+        tr
+          th First Name
+          th Last Name
+          th Email Address
+          th Actions
+      tbody
+        each contact in contacts
+          tr
+            td= contact.firstName
+            td= contact.lastName
+            td= contact.email
+            td
+              a.btn(href=`/contacts/${contact.id}`).view-btn View
+              br
+              a.btn(href=`/contacts/${contact.id}/edit`).edit-btn Edit
+              form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`, class='delete-form')
+                button.delete-btn(type='submit') Delete
+  br
+  a.btn(href='/contacts/new') Add Contact

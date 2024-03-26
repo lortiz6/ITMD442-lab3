@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/css/style.css')
+  h1#main-heading Edit Contact
+  form#contact-form(method='POST', action=`/contacts/${contact.id}?_method=PUT`)
+    label(for='firstName') First Name:
+    input(type='text', name='firstName', value=contact.firstName, id='firstName', required)
+    label(for='lastName') Last Name:
+    input(type='text', name='lastName', value=contact.lastName, id='lastName', required)
+    label(for='email') Email Address:
+    input(type='email', name='email', value=contact.email, id='email')
+    label(for='notes') Notes:
+    textarea(name='notes', id='notes')= contact.notes
+    button.btn(type='submit') Save
