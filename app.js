@@ -34,7 +34,22 @@ db.serialize(() => {
 
 // Routes...
 
-// GET route for searching contacts
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+
+app.get('/contacts', (req, res) => {
+    db.all('SELECT * FROM contacts', (err, rows) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.render('contacts', { contacts: rows });
+    });
+});
+
 app.get('/search', (req, res) => {
     const { query } = req.query;
     const sql = `
@@ -51,9 +66,12 @@ app.get('/search', (req, res) => {
     });
 });
 
-// GET route for homepage
 app.get('/', (req, res) => {
     res.render('index');
+});
+
+app.get('/contacts/new', (req, res) => {
+    res.render('new');
 });
 
 app.get('/contacts/:id', (req, res) => {
