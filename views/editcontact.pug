@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1#main-heading Edit Contact
+  .container
   form#contact-form(method='POST', action=`/contacts/${contact.id}?_method=PUT`)
     label(for='firstName') First Name:
     input(type='text', name='firstName', value=contact.firstName, id='firstName', required)

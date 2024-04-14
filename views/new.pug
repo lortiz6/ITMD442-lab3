@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1#main-heading Add New Contact
+  .container
   form#contact-form(method='POST', action='/contacts')
     label(for='firstName') First Name:
     input(type='text', name='firstName', id='firstName', required)
