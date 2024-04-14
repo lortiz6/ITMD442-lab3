@@ -1,7 +1,6 @@
 extends layout
 
 block content
-  link(rel='stylesheet', href='/css/style.css')
   h1#main-heading Edit Contact
   form#contact-form(method='POST', action=`/contacts/${contact.id}?_method=PUT`)
     label(for='firstName') First Name:
