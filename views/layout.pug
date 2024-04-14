@@ -8,6 +8,6 @@ html
       a(href='/') Homepage
       a(href='/contacts') Contacts
       a(href='/contacts/new') Add Contact
-    .search-bar
-      input.search-input(type='text', placeholder='Search by Name, Last Name, or Email Address')
+    form(action='/search', method='GET')
+      input.search-input(type='text', name='query', placeholder='Search by Name, Last Name, or Email Address')
     block content

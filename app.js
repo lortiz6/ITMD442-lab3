@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+//SQLite database connection
 const db = new sqlite3.Database(dbPath);
 
 // Initialize SQLite database and table
@@ -33,12 +34,14 @@ db.serialize(() => {
 
 // Routes...
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.get('/contacts', (req, res) => {
-    db.all('SELECT * FROM contacts', (err, rows) => {
+// GET route for searching contacts
+app.get('/search', (req, res) => {
+    const { query } = req.query;
+    const sql = `
+        SELECT * FROM contacts
+        WHERE firstName LIKE '%${query}%' OR lastName LIKE '%${query}%' OR email LIKE '%${query}%'
+    `;
+    db.all(sql, (err, rows) => {
         if (err) {
             console.error(err);
             res.status(500).send('Internal Server Error');
@@ -48,8 +51,9 @@ app.get('/contacts', (req, res) => {
     });
 });
 
-app.get('/contacts/new', (req, res) => {
-    res.render('new');
+// GET route for homepage
+app.get('/', (req, res) => {
+    res.render('index');
 });
 
 app.get('/contacts/:id', (req, res) => {
