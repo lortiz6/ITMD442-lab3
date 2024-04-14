@@ -12,10 +12,10 @@ block content
         td= contact.notes ? contact.notes : 'No notes available'
       tr
         th Created:
-        td= contact.createdFormatted
+        td= contact.created
       tr
         th Last Edited:
-        td= contact.lastEditedFormatted
+        td= contact.lastEdited
     .contact-actions
       a.btn(href=`/contacts/${contact.id}/edit`) Edit
       br
