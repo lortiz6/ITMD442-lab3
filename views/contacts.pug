@@ -3,6 +3,7 @@ extends layout
 block content
   div#contacts-container
     h1 Contacts
+    a.btn(href='/contacts/new') Add Contact
     table#contacts-table
       thead
         tr
@@ -22,5 +23,3 @@ block content
               a.btn(href=`/contacts/${contact.id}/edit`).edit-btn Edit
               form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`, class='delete-form')
                 button.delete-btn(type='submit') Delete
-  br
-  a.btn(href='/contacts/new') Add Contact

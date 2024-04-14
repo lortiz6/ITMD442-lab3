@@ -1,0 +1,88 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: #c100fcb5;
+}
+
+a:hover {
+  color: #00ffff;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  border: 1px solid white;
+}
+
+th {
+  background-color: #d4cfcfd5;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #ccc;
+  color: black;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00ffff;
+}
+
+.delete-form {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+#contacts-container {
+  margin-top: 2rem;
+}
