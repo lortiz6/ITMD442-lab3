@@ -4,10 +4,11 @@ html
     title Contact Database
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    .navbar
-      a(href='/') Homepage
+    nav.navbar
+      a(href='/') Home
       a(href='/contacts') Contacts
       a(href='/contacts/new') Add Contact
-    form(action='/search', method='GET')
-      input.search-input(type='text', name='query', placeholder='Search by Name, Last Name, or Email Address')
+      form.search-bar(action='/contacts', method='GET')
+        input.search-input(type='text', name='search', placeholder='Search by Name, Last Name, or Email')
+        button(type='submit') Search
     block content
