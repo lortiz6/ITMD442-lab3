@@ -5,10 +5,10 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     nav.navbar
-      a(href='/') Home
-      a(href='/contacts') Contacts
-      a(href='/contacts/new') Add Contact
+      a.nav-home(href='/') Home
+      a.nav-contacts(href='/contacts') Contacts
+      a.nav-add-contact(href='/contacts/new') Add Contact
       form.search-bar(action='/contacts', method='GET')
         input.search-input(type='text', name='search', placeholder='Search by Name, Last Name, or Email')
-        button(type='submit') Search
+        button.nav-search-button(type='submit') Search
     block content

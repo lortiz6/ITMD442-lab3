@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  h1#main-heading Add New Contact
-  form#contact-form(method='POST', action='/contacts')
+  h1.h1new Add New Contact
+  form.new-form(method='POST', action='/contacts')
     label(for='firstName') First Name:
     input(type='text', name='firstName', id='firstName', required)
     label(for='lastName') Last Name:
@@ -11,4 +11,4 @@ block content
     input(type='email', name='email', id='email')
     label(for='notes') Notes:
     textarea(name='notes', id='notes')
-    button.btn(type='submit') Add Contact
+    button.btn-add-contact(type='submit') Add Contact
