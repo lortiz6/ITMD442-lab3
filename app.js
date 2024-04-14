@@ -1,107 +1,139 @@
-const fs = require('fs');
-const path = require('path');
 const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
 const { v4: uuidv4 } = require('uuid');
 const methodOverride = require('method-override');
+const path = require('path');
 
 const app = express();
-const contactsFilePath = path.join(__dirname, 'contacts.json');
+const dbPath = path.join(__dirname, 'data', 'contacts.db');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// Functions for reading and writing contacts
-function writeContactsToFile(contacts) {
-  fs.writeFileSync(contactsFilePath, JSON.stringify(contacts, null, 2));
-}
+const db = new sqlite3.Database(dbPath);
 
-function readContactsFromFile() {
-  let contacts = [];
-  try {
-    const data = fs.readFileSync(contactsFilePath, 'utf8');
-    contacts = JSON.parse(data);
-  } catch (err) {
-    if (err.code === 'ENOENT' || err.message.includes('Unexpected end of JSON input')) {
-      console.log('Contacts file is empty or does not exist, initializing with an empty array.');
-    } else {
-      throw err;
-    }
-  }
-  return contacts;
-}
+// Initialize SQLite database and table
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS contacts (
+            id TEXT PRIMARY KEY,
+            firstName TEXT,
+            lastName TEXT,
+            email TEXT,
+            notes TEXT,
+            created TEXT,
+            lastEdited TEXT
+        )
+    `);
+});
 
-// Routes
+// Routes...
+
 app.get('/', (req, res) => {
-  res.render('index');
+    res.render('index');
 });
 
 app.get('/contacts', (req, res) => {
-  const contacts = readContactsFromFile();
-  res.render('contacts', { contacts });
+    db.all('SELECT * FROM contacts', (err, rows) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.render('contacts', { contacts: rows });
+    });
 });
 
 app.get('/contacts/new', (req, res) => {
-  res.render('new');
+    res.render('new');
 });
 
 app.get('/contacts/:id', (req, res) => {
-  const contacts = readContactsFromFile();
-  const requestedContact = contacts.find(contact => contact.id === req.params.id);
-  if (!requestedContact) {
-    res.status(404).send('Contact not found');
-  } else {
-    requestedContact.createdFormatted = new Date(requestedContact.created).toLocaleString();
-    requestedContact.lastEditedFormatted = new Date(requestedContact.lastEdited).toLocaleString();
-    res.render('contact', { contact: requestedContact });
-  }
+    const id = req.params.id;
+    db.get('SELECT * FROM contacts WHERE id = ?', [id], (err, row) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        if (!row) {
+            res.status(404).send('Contact not found');
+            return;
+        }
+        res.render('contact', { contact: row });
+    });
 });
 
 app.post('/contacts', (req, res) => {
-  const contacts = readContactsFromFile();
-  const newContact = {
-    id: uuidv4(),
-    ...req.body,
-    created: new Date().toISOString(),
-    lastEdited: new Date().toISOString()
-  };
-  contacts.push(newContact);
-  writeContactsToFile(contacts);
-  res.redirect(`/contacts/${newContact.id}`);
+    const { firstName, lastName, email, notes } = req.body;
+    const id = uuidv4();
+    const created = new Date().toISOString();
+    const lastEdited = created;
+    const sql = 'INSERT INTO contacts (id, firstName, lastName, email, notes, created, lastEdited) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    const values = [id, firstName, lastName, email, notes, created, lastEdited];
+    db.run(sql, values, (err) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.redirect(`/contacts/${id}`);
+    });
 });
 
 app.get('/contacts/:id/edit', (req, res) => {
-  const contacts = readContactsFromFile();
-  const requestedContact = contacts.find(contact => contact.id === req.params.id);
-  res.render('editContact', { contact: requestedContact });
+    const id = req.params.id;
+    db.get('SELECT * FROM contacts WHERE id = ?', [id], (err, row) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        if (!row) {
+            res.status(404).send('Contact not found');
+            return;
+        }
+        res.render('editContact', { contact: row });
+    });
 });
 
 app.put('/contacts/:id', (req, res) => {
-  let contacts = readContactsFromFile();
-  contacts = contacts.map(contact => {
-    if (contact.id === req.params.id) {
-      return { ...contact, ...req.body, lastEdited: new Date().toISOString() };
-    }
-    return contact;
-  });
-  writeContactsToFile(contacts);
-  res.redirect(`/contacts/${req.params.id}`);
+    const { firstName, lastName, email, notes } = req.body;
+    const lastEdited = new Date().toISOString();
+    const id = req.params.id;
+    const sql = 'UPDATE contacts SET firstName = ?, lastName = ?, email = ?, notes = ?, lastEdited = ? WHERE id = ?';
+    const values = [firstName, lastName, email, notes, lastEdited, id];
+    db.run(sql, values, (err) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.redirect(`/contacts/${id}`);
+    });
 });
 
 app.delete('/contacts/:id', (req, res) => {
-  let contacts = readContactsFromFile();
-  contacts = contacts.filter(contact => contact.id !== req.params.id);
-  writeContactsToFile(contacts);
-  res.redirect('/contacts');
+    const id = req.params.id;
+    const sql = 'DELETE FROM contacts WHERE id = ?';
+    db.run(sql, [id], (err) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.redirect('/contacts');
+    });
 });
 
+// Error handler
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send(`Something broke! Error: ${err.message}`);
+    console.error(err.stack);
+    res.status(500).send(`Something broke! Error: ${err.message}`);
 });
 
 const PORT = process.env.PORT || 3000;
