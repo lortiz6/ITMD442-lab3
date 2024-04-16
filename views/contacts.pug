@@ -1,25 +1,25 @@
 extends layout
 
 block content
-  div.contacts-container
     h1.h1-contacts Contacts
     a.btn-add(href='/contacts/new') Add Contact
-    table.contacts-table
-      thead
-        tr
-          th First Name
-          th Last Name
-          th Email Address
-          th Actions
-      tbody
-        each contact in contacts
-          tr
-            td= contact.firstName
-            td= contact.lastName
-            td= contact.email
-            td
-              a.btn-view(href=`/contacts/${contact.id}`) View
-              br
-              a.btn-edit(href=`/contacts/${contact.id}/edit`) Edit
-              form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`, class='delete-form')
-                button.btn-delete(type='submit') Delete
+    div.contacts-container
+        table.contacts-table
+            thead
+                tr
+                    th First Name
+                    th Last Name
+                    th Email Address
+                    th Actions
+            tbody
+                each contact in contacts
+                    tr
+                        td= contact.firstName
+                        td= contact.lastName
+                        td= contact.email
+                        td
+                            a.btn-view(href=`/contacts/${contact.id}`) View
+                            br
+                            a.btn-edit(href=`/contacts/${contact.id}/edit`) Edit
+                            form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`, class='delete-form')
+                                button.btn-delete(type='submit') Delete
