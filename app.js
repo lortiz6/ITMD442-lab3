@@ -66,10 +66,6 @@ app.get('/search', (req, res) => {
     });
 });
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
 app.get('/contacts/new', (req, res) => {
     res.render('new');
 });
