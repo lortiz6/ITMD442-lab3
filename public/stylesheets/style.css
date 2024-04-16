@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: black;
   color: white;
@@ -5,151 +10,136 @@ body {
   text-align: center;
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 2rem;
-  border: 1px solid white;
-  border-radius: 5px;
-  text-align: left;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-table {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  padding: 0.5rem;
-  border: 1px solid white;
-}
-
-th {
-  background-color: #d4cfcfd5;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  background-color: #7e0a0ad5;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-
-
-label {
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-}
-
-input,
-textarea {
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  border: 1px solid white;
-}
-
-button {
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: none;
-  background-color: ;
-  color: black;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #00ffff;
-}
-
-.delete-form {
-  display: inline-block;
-  margin-left: 1rem;
-}
-
-.contact-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-#contacts-container {
-  margin-top: 2rem;
-}
-
-/* Navigation Bar */
 .navbar {
-  background-color: black;
-  padding: 10px 10px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background-color: black;
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
-  padding: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.navbar a:hover {
-  background-color: #00ffff;
-  color: black;
-  font-weight: bold;
-}
-
-/* Search bar */
-.navbar form .search-bar {
-  display: flex;
-  align-items: center;
+  margin: 0 10px;
 }
 
 .search-bar {
-  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .search-input {
-  padding: 8px;
-  border: 2px solid #00ffff;
-  border-radius: 5px;
-  background-color: transparent;
-  color: white;
-  font-size: 16px;
+  padding: 5px;
   margin-right: 5px;
 }
 
-.search-input:focus {
-  outline: none;
-}
-
 .nav-search-button {
+  padding: 5px 10px;
   background-color: #ccc;
-  color: black;
   border: none;
-  border-radius: 5px;
-  padding: 8px 15px; /* Adjust padding */
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-items: center;
 }
 
-.nav-search-button:hover {
-  background-color: #00ffff;
+.h1-index,
+.h1-contact,
+.h1-contacts,
+.h1-edit,
+.h1-new {
+  margin-top: 50px;
+}
+
+.btn-add,
+.btn-edit,
+.btn-view {
+  padding: 10px 20px;
+  background-color: violet;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-delete, .btn-delete-contact {
+  padding: 10px 20px;
+  background-color: violet;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding-block: 10px;
+}
+
+.btn-save,
+.btn-add-contact {
+  padding: 10px 20px;
+  background-color: violet;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.index-view {
+  padding: 15px 30px;
+  background-color: violet;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.contacts-container,
+.contact-actions {
+  margin-top: 20px;
+}
+
+.contacts-table,
+.contact-table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.contacts-table th,
+.contact-table th,
+.contacts-table td,
+.contact-table td {
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.edit-container,
+.new-container {
+  margin-top: 20px;
+}
+
+.edit-form,
+.new-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.edit-form input,
+.new-form input,
+.edit-form textarea,
+.new-form textarea {
+  width: calc(100% - 20px);
+  padding: 5px;
+  margin: 5px 0;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+  }
+  
+  .nav-home,
+  .nav-contacts,
+  .nav-add-contact {
+    margin: 0 20px;
+  }
+
+  .contacts-table,
+  .contact-table {
+    width: 100%;
+  }
 }
