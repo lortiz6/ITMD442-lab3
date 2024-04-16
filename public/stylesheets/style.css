@@ -23,7 +23,6 @@ body {
   margin: 0 10px;
   font-size: 20px;
   font-weight: bold;
-  border-radius: 20px;
 }
 
 nav a:hover {
@@ -212,48 +211,32 @@ div,
 }
 
 .contact-actions {
-  justify-content: space-between;
-}
-
-
-.btn-edit-contact,
-.btn-delete-contact  {
   display: flex;
   justify-content: space-between;
 }
 
-.contact-actions a,
-.contact-actions form {
-  margin: 5px;
+.contact-actions a.btn-edit-contact,
+.contact-actions form.delete-form {
+  display: flex;
+  align-items: center;
 }
 
-.contact-actions form {
-  display: inline-block;
-}
-
-.btn-edit-contact  {
-  padding: 12px 10px;
-  background-color: rgba(244, 162, 244, 0.707);
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-}
-
-.btn-delete-contact  {
+.btn-edit-contact,
+.btn-delete-contact {
   padding: 10px 20px;
   background-color: rgba(244, 162, 244, 0.707);
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 20px;
+  width: auto;
+  display: inline-block;
+  text-align: center;
 }
 
-.btn-edit:hover,
-.btn-delete:hover,
-.btn-view:hover,
-.btn-edit:hover,
-.btn-delete:hover:hover {
+
+.btn-edit-contact:hover,
+.btn-delete-contact:hover {
   background-color: #00ffff;
 }
 

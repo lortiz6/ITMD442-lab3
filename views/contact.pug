@@ -16,8 +16,7 @@ block content
         tr
           th Last Edited:
           td= contact.lastEdited
-        .contact-actions
-          a.btn-edit-contact(href=`/contacts/${contact.id}/edit`) Edit
-          br
-          form.delete-form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`)
-            button.btn-delete-contact(type='submit') Delete
+      .contact-actions
+        a.btn-contact.btn-edit-contact(href=`/contacts/${contact.id}/edit`) Edit
+        form.delete-form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`)
+          button.btn-contact.btn-delete-contact(type='submit') Delete
