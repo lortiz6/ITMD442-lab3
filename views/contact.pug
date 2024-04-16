@@ -2,21 +2,22 @@ extends layout
 
 block content
     h1.h1-contact= contact.firstName + ' ' + contact.lastName
-    table.contact-table
-      tr
-        th Email:
-        td= contact.email
-      tr
-        th Notes:
-        td= contact.notes ? contact.notes : 'No notes available'
-      tr
-        th Created:
-        td= contact.created
-      tr
-        th Last Edited:
-        td= contact.lastEdited
-    .contact-actions
-      a.btn-edit-contact(href=`/contacts/${contact.id}/edit`) Edit
-      br
-      form.delete-form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`)
-        button.btn-delete-contact(type='submit') Delete
+    div.contact-container
+      table.contact-table
+        tr
+          th Email:
+          td= contact.email
+        tr
+          th Notes:
+          td= contact.notes ? contact.notes : 'No notes available'
+        tr
+          th Created:
+          td= contact.created
+        tr
+          th Last Edited:
+          td= contact.lastEdited
+        .contact-actions
+          a.btn-edit-contact(href=`/contacts/${contact.id}/edit`) Edit
+          br
+          form.delete-form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`)
+            button.btn-delete-contact(type='submit') Delete

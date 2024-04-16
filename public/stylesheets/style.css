@@ -67,7 +67,7 @@ body {
 .h1-edit,
 .h1-new {
   margin-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
 .btn-add,
@@ -94,7 +94,6 @@ body {
   background-color: rgba(244, 162, 244, 0.707);
   color: white;
   border: none;
-  cursor: pointer;
 }
 
 .btn-delete-contact {
@@ -102,7 +101,6 @@ body {
   background-color: rgba(244, 162, 244, 0.707);
   color: white;
   border: none;
-  cursor: pointer;
   padding-block: 10px;
   border-radius: 20px;
   margin: 5px;
@@ -114,7 +112,7 @@ body {
 
 .contacts-container,
 .contact-actions {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .home-container {
@@ -123,7 +121,7 @@ body {
   padding-bottom: 20px;
 }
 
-.index-pcontainer{
+.index-container{
   width: auto;
   height: auto;
   border-radius: 15px;
@@ -156,9 +154,11 @@ body {
   color: #f5f0f5;
 }
 
+.new-form,
 div,
 .contacts-table,
-.contact-table {
+.contact-container,
+.contact-table-edit {
   width: 50%;
   margin: 0 auto;
   border-collapse: collapse;
@@ -166,9 +166,11 @@ div,
 }
 
 .contacts-table th,
-.contact-table th,
+.contact-container th,
+.contact-table-edit th,
 .contacts-table td,
-.contact-table td {
+.contact-container td,
+.contact-table-edit td {
   padding: 10px;
   border: 1px solid white;
 }
@@ -178,8 +180,7 @@ div,
   margin-top: 20px;
 }
 
-.edit-form,
-.new-form {
+.edit-form {
   width: 80%;
   margin: 0 auto;
 }
@@ -206,7 +207,8 @@ div,
   }
 
   .contacts-table,
-  .contact-table {
+  .contact-table,
+  .contact-table-edit {
     width: 100%;
   }
 }
