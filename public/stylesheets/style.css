@@ -14,30 +14,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: transparent;
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
   margin: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .search-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 20px;
   border: 4px solid #00ffff;
   border-radius: 20px;
   padding: 1px 20px;
   margin-bottom: 25px;
-  margin-right: 5px; /* Added margin to the right */
+  position: relative;
 }
 
-.search-input {
+input .search-input {
   padding: 5px;
   margin-right: 5px;
+  border-radius: 10px;
 }
 
 .nav-search-button {
@@ -46,6 +49,12 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 20px;
+  position: absolute;
+  right: -80px;
+}
+
+.nav-search-button:hover {
+  background-color: #00ffff;
 }
 
 .h1-index,
@@ -59,16 +68,33 @@ body {
 
 .btn-add,
 .btn-edit,
-.btn-view {
+.btn-view,
+.btn-delete,
+.btn-save,
+.btn-add-contact,
+.index-view {
   padding: 10px 25px;
   background-color: violet;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 20px;
+  margin: 5px;
+  font-weight: bold;
 }
 
-.btn-delete, .btn-delete-contact {
+.index-view:hover,
+.btn-add:hover,
+.btn-edit:hover,
+.btn-view:hover,
+.btn-delete:hover,
+.btn-save:hover,
+.btn-add-contact:hover,
+.navbar a:hover {
+  background-color: #00ffff;
+}
+
+.btn-delete-contact {
   padding: 10px 20px;
   background-color: violet;
   color: white;
@@ -77,25 +103,6 @@ body {
   padding-block: 10px;
   border-radius: 20px;
   margin: 5px;
-}
-
-.btn-save,
-.btn-add-contact {
-  padding: 10px 20px;
-  background-color: violet;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-  margin: 5px;
-}
-
-.index-view {
-  padding: 15px 30px;
-  background-color: violet;
-  color: white;
-  border: none;
-  cursor: pointer;
 }
 
 .contacts-container,
