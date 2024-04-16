@@ -49,11 +49,12 @@ body {
 
 .nav-search-button {
   padding: 5px 10px;
-  background-color: #ccc;
+  background-color: rgba(244, 162, 244, 0.707);
   border: none;
   cursor: pointer;
   border-radius: 20px;
   margin-left: 20px;
+  font-size: 18px;
 }
 
 .nav-search-button:hover {
@@ -72,12 +73,14 @@ body {
 .btn-add,
 .btn-edit,
 .btn-view,
-.btn-delete,
 .btn-save,
+.btn-delete,
+.index-view,
 .btn-add-contact,
-.index-view{
+.btn-edit-contact,
+.btn-delete-contact {
   padding: 12px 28px;
-  background-color: violet;
+  background-color: rgba(244, 162, 244, 0.707);
   color: white;
   border: none;
   cursor: pointer;
@@ -88,7 +91,7 @@ body {
 
 .btn-delete {
   padding: 10px 20px;
-  background-color: violet;
+  background-color: rgba(244, 162, 244, 0.707);
   color: white;
   border: none;
   cursor: pointer;
@@ -96,7 +99,7 @@ body {
 
 .btn-delete-contact {
   padding: 10px 30px;
-  background-color: violet;
+  background-color: rgba(244, 162, 244, 0.707);
   color: white;
   border: none;
   cursor: pointer;
