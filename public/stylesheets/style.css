@@ -32,6 +32,7 @@ body {
   border-radius: 20px;
   padding: 1px 20px;
   margin-bottom: 25px;
+  margin-right: 5px; /* Added margin to the right */
 }
 
 .search-input {
@@ -45,7 +46,6 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 20px;
-  margin: 5px;
 }
 
 .h1-index,
