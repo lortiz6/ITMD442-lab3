@@ -78,13 +78,13 @@ body {
 .btn-save,
 .btn-add-contact,
 .index-view {
-  padding: 10px 25px;
+  padding: 12px 28px;
   background-color: violet;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 20px;
-  margin: 5px;
+  margin: 10px 5px;
   font-weight: bold;
 }
 
@@ -114,6 +114,28 @@ body {
 .contact-actions {
   margin-top: 20px;
 }
+
+.home-container {
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 03px 0px 15px rgba(218, 175, 245, 0.459);
+}
+
+.container-content p {
+  margin-bottom: 30px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #ddd;
+  text-align: justify;
+}
+
+.container-content p:first-child {
+  font-weight: bold;
+  color: rgba(172, 83, 227, 0.855);
+  text-shadow: 3px 3px 5px rgba(67, 245, 236, 0.722); /* Example of adding text shadow */
+}
+
+
 
 .contacts-table,
 .contact-table {
