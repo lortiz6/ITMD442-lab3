@@ -25,6 +25,14 @@ body {
   font-weight: bold;
 }
 
+nav a:hover {
+  padding: 5px 12px;
+  font-size: 25px;
+  border: 4px;
+  background-color: #00ffff;
+  animation: wiggle 2s linear infinite;
+}
+
 .search-bar {
   position: relative;
   display: flex;
@@ -58,7 +66,9 @@ body {
 }
 
 .nav-search-button:hover {
+  font-size: 23;
   background-color: #00ffff;
+  animation: wiggle 2s linear infinite;
 }
 
 .h1-index,
@@ -71,39 +81,64 @@ body {
 }
 
 .btn-add,
-.btn-edit,
-.btn-view,
-.btn-save,
-.btn-delete,
-.index-view,
-.btn-add-contact,
-.btn-edit-contact,
-.btn-delete-contact {
+.index-view {
   padding: 12px 28px;
   background-color: rgba(244, 162, 244, 0.707);
   color: white;
   border: none;
   cursor: pointer;
-    border-radius: 20px;
+  border-radius: 20px;
   margin: 10px 5px;
   font-weight: bold;
 }
 
+.btn-edit,
+.btn-view,
+.btn-save,
+.btn-delete,
+.btn-add-contact,
+.btn-edit-contact {
+  padding: 5px 14px;
+  color: white;
+  background-color: rgba(244, 162, 244, 0.707);
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  margin: 10px 5px;
+  font-size: 18px;
+}
+
 .btn-delete {
-  padding: 10px 20px;
+  padding: 5px 12px;
   background-color: rgba(244, 162, 244, 0.707);
   color: white;
   border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  margin: 10px 5px;
 }
 
 .btn-delete-contact {
-  padding: 10px 30px;
+  padding: 5px 12px;
   background-color: rgba(244, 162, 244, 0.707);
   color: white;
   border: none;
   padding-block: 10px;
   border-radius: 20px;
   margin: 5px;
+  font-size: 18px;
+}
+
+.btn-edit {
+  padding: 5px 16px;
+}
+
+.btn-save {
+  position: absolute;
+  left: calc(50% - 3em);
+  top: calc(66% - 2em);
+  transform-origin: 50% 5em;
+  animation: wiggle 2s linear infinite;
 }
 
 .index-view {
@@ -194,6 +229,32 @@ div,
   padding: 5px;
   margin: 5px 0;
 }
+
+/* keyframes */
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
 
 /* Media Queries */
 @media only screen and (min-width: 768px) {
