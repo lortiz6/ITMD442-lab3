@@ -3,7 +3,7 @@ extends layout
 block content
   div.contacts-container
     h1.h1-contacts Contacts
-    a.btn(href='/contacts/new') Add Contact
+    a.btn-add(href='/contacts/new') Add Contact
     table.contacts-table
       thead
         tr
@@ -18,8 +18,8 @@ block content
             td= contact.lastName
             td= contact.email
             td
-              a.btn(href=`/contacts/${contact.id}`).view-btn View
+              a.btn-view(href=`/contacts/${contact.id}`) View
               br
-              a.btn(href=`/contacts/${contact.id}/edit`).edit-btn Edit
+              a.btn-edit(href=`/contacts/${contact.id}/edit`) Edit
               form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`, class='delete-form')
-                button.delete-btn(type='submit') Delete
+                button.btn-delete(type='submit') Delete

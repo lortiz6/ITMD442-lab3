@@ -20,7 +20,11 @@ h1 {
 }
 
 table {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0 auto;
   border-collapse: collapse;
 }
 
@@ -37,8 +41,15 @@ th {
 form {
   display: flex;
   flex-direction: column;
-  background-color: #d4cfcfd5;
+  background-color: #7e0a0ad5;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
 }
+
 
 label {
   margin-bottom: 0.5rem;
@@ -57,7 +68,7 @@ button {
   padding: 0.5rem;
   border-radius: 5px;
   border: none;
-  background-color: #ccc;
+  background-color: ;
   color: black;
   cursor: pointer;
 }
@@ -105,7 +116,7 @@ button:hover {
 }
 
 /* Search bar */
-.navbar .search-bar {
+.navbar form .search-bar {
   display: flex;
   align-items: center;
 }
