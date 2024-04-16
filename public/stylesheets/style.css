@@ -23,6 +23,7 @@ body {
   margin: 0 10px;
   font-size: 20px;
   font-weight: bold;
+  border-radius: 20px;
 }
 
 nav a:hover {
@@ -96,8 +97,7 @@ nav a:hover {
 .btn-view,
 .btn-save,
 .btn-delete,
-.btn-add-contact,
-.btn-edit-contact {
+.btn-add-contact {
   padding: 5px 14px;
   color: white;
   background-color: rgba(244, 162, 244, 0.707);
@@ -108,36 +108,17 @@ nav a:hover {
   font-size: 18px;
 }
 
-.btn-delete {
-  padding: 5px 12px;
-  background-color: rgba(244, 162, 244, 0.707);
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-  margin: 10px 5px;
-}
-
-.btn-delete-contact {
-  padding: 5px 12px;
-  background-color: rgba(244, 162, 244, 0.707);
-  color: white;
-  border: none;
-  padding-block: 10px;
-  border-radius: 20px;
-  margin: 5px;
-  font-size: 18px;
-}
-
-.btn-edit {
-  padding: 5px 16px;
-}
-
 .btn-save {
   position: absolute;
   left: calc(50% - 3em);
   top: calc(66% - 2em);
   transform-origin: 50% 5em;
+  animation: wiggle 3s linear infinite;
+}
+
+.btn-add-contact:hover,
+.btn-save:hover {
+  background-color: #00ffff;
   animation: wiggle 2s linear infinite;
 }
 
@@ -230,6 +211,52 @@ div,
   margin: 5px 0;
 }
 
+.contact-actions {
+  justify-content: space-between;
+}
+
+
+.btn-edit-contact,
+.btn-delete-contact  {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-actions a,
+.contact-actions form {
+  margin: 5px;
+}
+
+.contact-actions form {
+  display: inline-block;
+}
+
+.btn-edit-contact  {
+  padding: 12px 10px;
+  background-color: rgba(244, 162, 244, 0.707);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.btn-delete-contact  {
+  padding: 10px 20px;
+  background-color: rgba(244, 162, 244, 0.707);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.btn-edit:hover,
+.btn-delete:hover,
+.btn-view:hover,
+.btn-edit:hover,
+.btn-delete:hover:hover {
+  background-color: #00ffff;
+}
+
 /* keyframes */
 @keyframes wiggle {
   0%, 7% {
@@ -254,7 +281,6 @@ div,
     transform: rotateZ(0);
   }
 }
-
 
 /* Media Queries */
 @media only screen and (min-width: 768px) {

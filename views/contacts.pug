@@ -17,9 +17,8 @@ block content
                         td= contact.firstName
                         td= contact.lastName
                         td= contact.email
-                        td
+                        td.contact-actions
                             a.btn-view(href=`/contacts/${contact.id}`) View
-                            br
                             a.btn-edit(href=`/contacts/${contact.id}/edit`) Edit
-                            form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`, class='delete-form')
+                            form.delete-form(method='POST', action=`/contacts/${contact.id}?_method=DELETE`, class='delete-form')
                                 button.btn-delete(type='submit') Delete
