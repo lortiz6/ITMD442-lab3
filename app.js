@@ -38,25 +38,21 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-
 app.get('/contacts', (req, res) => {
-    db.all('SELECT * FROM contacts', (err, rows) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('Internal Server Error');
-            return;
-        }
-        res.render('contacts', { contacts: rows });
-    });
-});
-
-app.get('/search', (req, res) => {
-    const { query } = req.query;
-    const sql = `
-        SELECT * FROM contacts
-        WHERE firstName LIKE '%${query}%' OR lastName LIKE '%${query}%' OR email LIKE '%${query}%'
-    `;
-    db.all(sql, (err, rows) => {
+    const { search } = req.query;
+    let sql;
+    let params;
+    if (search) {
+        sql = `
+            SELECT * FROM contacts
+            WHERE firstName LIKE ? OR lastName LIKE ? OR email LIKE ?
+        `;
+        params = [`%${search}%`, `%${search}%`, `%${search}%`];
+    } else {
+        sql = 'SELECT * FROM contacts';
+        params = [];
+    }
+    db.all(sql, params, (err, rows) => {
         if (err) {
             console.error(err);
             res.status(500).send('Internal Server Error');
