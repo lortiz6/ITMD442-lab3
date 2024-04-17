@@ -174,10 +174,14 @@ div,
 .contacts-table,
 .contact-container,
 .contact-table-edit {
-  width: 50%;
+  width: 30%;
   margin: 0 auto;
   border-collapse: collapse;
   padding-top: 60px;
+}
+.new-form {
+  border: 3px;
+  box-shadow: 03px 0px 15px rgba(198, 137, 236, 0.459);
 }
 .contacts-table th,
 .contact-container th,
@@ -193,8 +197,8 @@ div,
   margin-top: 20px;
 }
 .edit-form {
-  width: 80%;
-  margin: 0 auto;
+  width: 40%;
+  margin: 5px auto;
 }
 .edit-form input,
 .new-form input,
@@ -203,6 +207,7 @@ div,
   width: calc(100% - 20px);
   padding: 5px;
   margin: 5px 0;
+  text-align: center;
 }
 .contact-actions {
   display: flex;
