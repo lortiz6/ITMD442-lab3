@@ -28,9 +28,12 @@ body {
 nav a:hover {
   padding: 5px 12px;
   font-size: 25px;
+  color: black;
+  font-weight: bold;
   border: 4px;
   background-color: #00ffff;
   animation: wiggle 2s linear infinite;
+  border-radius: 20px;
 }
 
 .search-bar {
@@ -58,26 +61,37 @@ nav a:hover {
 .nav-search-button {
   padding: 5px 10px;
   background-color: rgba(244, 162, 244, 0.707);
+  color: white;
   border: none;
   cursor: pointer;
   border-radius: 20px;
   margin-left: 20px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .nav-search-button:hover {
   font-size: 23;
   background-color: #00ffff;
   animation: wiggle 2s linear infinite;
+  color: black;
+  font-weight: bold;
 }
 
 .h1-index,
 .h1-contact,
 .h1-contacts,
 .h1-edit,
-.h1-new {
+.h1new {
   margin-top: 50px;
   padding-bottom: 50px;
+  font-size: 4em;
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" <morph>,
+    "SHLN" 50;
 }
 
 .btn-add,
@@ -109,8 +123,8 @@ nav a:hover {
 
 .btn-save {
   position: absolute;
-  left: calc(50% - 3em);
-  top: calc(66% - 2em);
+  left: 45%;
+  top: 75%;
   transform-origin: 50% 5em;
   animation: wiggle 3s linear infinite;
 }
@@ -118,7 +132,9 @@ nav a:hover {
 .btn-add-contact:hover,
 .btn-save:hover {
   background-color: #00ffff;
-  animation: wiggle 2s linear infinite;
+  animation: wiggle 3s linear infinite;
+  color: black;
+  font-weight: bold;
 }
 
 .index-view {
@@ -153,7 +169,10 @@ nav a:hover {
   width: 90%;
   padding-bottom: 30px;
   margin-top: -80px;
-  font-size: 18px;
+  font-size: 20px;
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .p1 {
@@ -161,8 +180,11 @@ nav a:hover {
 }
 
 .index-hp {
-  font-size: 20px;
+  font-size: 25px;
   padding-bottom: 30px;
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .home-container .index-hp:first-child {
@@ -234,10 +256,16 @@ div,
   text-align: center;
 }
 
-
+.btn-add:hover,
+.index-view:hover,
+.btn-edit:hover,
+.btn-view:hover,
+.btn-delete:hover,
 .btn-edit-contact:hover,
 .btn-delete-contact:hover {
   background-color: #00ffff;
+  color: black;
+  font-weight: bold;
 }
 
 /* keyframes */
@@ -281,5 +309,21 @@ div,
   .contact-table,
   .contact-table-edit {
     width: 100%;
+  }
+
+.h1-index,
+.h1-contact,
+.h1-contacts,
+.h1-edit,
+.h1new {
+  font-size: 6em;
+}
+
+  .btn-save:after {
+    position: absolute;
+    left: 40%;
+    top: 60%;
+    transform-origin: 50% 5em;
+    animation: wiggle 3s linear infinite;
   }
 }
