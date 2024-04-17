@@ -81,7 +81,7 @@ nav a:hover {
   font-style: normal;
   font-variation-settings:
     "MORF"'<morph>',
-    "SHLN" 50,
+    "SHLN" 50;
 }
 .btn-add,
 .index-view {
@@ -109,13 +109,9 @@ nav a:hover {
   font-size: 18px;
 }
 .btn-save {
-  position: absolute;
-  left: 45%;
-  top: 75%;
-  transform-origin: 50% 5em;
+  position: relative;
   animation: wiggle 3s linear infinite;
 }
-.btn-add-contact:hover,
 .btn-save:hover {
   background-color: #00ffff;
   animation: wiggle 3s linear infinite;
@@ -134,7 +130,7 @@ nav a:hover {
   height: auto;
   padding-bottom: 20px;
 }
-.index-container{
+.index-container {
   width: auto;
   height: auto;
   border-radius: 15px;
@@ -172,9 +168,14 @@ nav a:hover {
 .new-form,
 div,
 .contacts-table,
-.contact-container,
-.contact-table-edit {
+.contact-container {
   width: 30%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  padding-top: 60px;
+}
+.contact-table-edit {
+  width: 50%;
   margin: 0 auto;
   border-collapse: collapse;
   padding-top: 60px;
@@ -195,6 +196,7 @@ div,
 .edit-container,
 .new-container {
   margin-top: 20px;
+  width: auto;
 }
 .edit-form {
   width: 40%;
@@ -282,14 +284,14 @@ div,
   .contact-table-edit {
     width: 100%;
   }
-.h1-index,
-.h1-contact,
-.h1-contacts,
-.h1-edit,
-.h1new {
-  font-size: 6em;
-}
-  .btn-save:after {
+  .h1-index,
+  .h1-contact,
+  .h1-contacts,
+  .h1-edit,
+  .h1new {
+    font-size: 6em;
+  }
+  .btn-save:hover::after {
     position: absolute;
     left: 40%;
     top: 60%;
